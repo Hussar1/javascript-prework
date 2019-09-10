@@ -7,3 +7,7 @@ function printMessage(msg){
 function clearMessages(){
 	document.getElementById('messages').innerHTML = '';
 }
+
+function printResult(computerResult, playerResult) {
+	document.getElementById('result').innerText = 'Punkty komputera: ' + computerResult + ' | ' + 'Punkty gracza: ' + playerResult;
+}

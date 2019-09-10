@@ -1,11 +1,14 @@
+let computerResult = 0;
+let playerResult = 0;
+
 function playGame(playerInput) {
     clearMessages();
     function getMoveName(argMoveId) {
-        if(argMoveId == 1) {
+        if(argMoveId === 1) {
             return 'kamień';
-        } else if (argMoveId == 2) {
+        } else if (argMoveId === 2) {
             return 'papier';
-        } else if (argMoveId == 3) {
+        } else if (argMoveId === 3) {
             return 'nożyce';
         }
         printMessage('Nie znam ruchu o id ' + argMoveId + '.');
@@ -24,31 +27,38 @@ function playGame(playerInput) {
 
     function displayResult(argComputerMove, argPlayerMove) {
         console.log('Porównywane ruchy:', argComputerMove, argPlayerMove);
-        if (argComputerMove == 'kamień' && argPlayerMove == 'papier') {
+        if (argComputerMove === 'kamień' && argPlayerMove === 'papier') {
             printMessage('Ty wygrywasz!');
-        } else if (argComputerMove == 'kamień' && argPlayerMove == 'nożyce') {
+            playerResult += 1;
+        } else if (argComputerMove === 'kamień' && argPlayerMove === 'nożyce') {
             printMessage('Komputer wygrywa.');
-        } else if (argComputerMove == 'kamień' && argPlayerMove == 'kamień') {
+            computerResult += 1;
+        } else if (argComputerMove === 'kamień' && argPlayerMove === 'kamień') {
             printMessage('Remis.');
         
-        } else if (argComputerMove == 'papier' && argPlayerMove == 'nożyce') {
+        } else if (argComputerMove === 'papier' && argPlayerMove === 'nożyce') {
             printMessage('Ty wygrywasz!');
-        } else if (argComputerMove == 'papier' && argPlayerMove == 'kamień') {
+            playerResult += 1;
+        } else if (argComputerMove === 'papier' && argPlayerMove === 'kamień') {
             printMessage('Komputer wygrywa.');
-        } else if (argComputerMove == 'papier' && argPlayerMove == 'papier') {
+            computerResult += 1;
+        } else if (argComputerMove === 'papier' && argPlayerMove === 'papier') {
             printMessage('Remis.');
         
-        } else if (argComputerMove == 'nożyce' && argPlayerMove == 'kamień') {
+        } else if (argComputerMove === 'nożyce' && argPlayerMove === 'kamień') {
             printMessage('Ty wygrywasz!');
-        } else if (argComputerMove == 'nożyce' && argPlayerMove == 'papier') {
+            playerResult += 1;
+        } else if (argComputerMove === 'nożyce' && argPlayerMove === 'papier') {
             printMessage('Komputer wygrywa.');
-        } else if (argComputerMove == 'nożyce' && argPlayerMove == 'nożyce') {
+            computerResult += 1;
+        } else if (argComputerMove === 'nożyce' && argPlayerMove === 'nożyce') {
             printMessage('Remis.');
         } 
 
-        if (argPlayerMove == 'nieznany ruch') {
+        if (argPlayerMove === 'nieznany ruch') {
             printMessage('Odśwież stronę i wpisz albo: "1", albo: "2", albo: "3"');
         }
+        printResult(computerResult, playerResult);        
     }
     displayResult(computerMove, playerMove);
 }
@@ -64,3 +74,6 @@ document.getElementById('play-paper').addEventListener('click', function() {
 document.getElementById('play-scissors').addEventListener('click', function() {
     playGame(3);
 });
+
+// można tak
+//document.getElementById('play-rock').addEventListener('click', playGame.bind(undefined, 1));
