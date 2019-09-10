@@ -46,7 +46,7 @@ printMessage('Twój ruch to: ' + playerMove);
 function displayResult(argComputerMove, argPlayerMove) {
     console.log('moves:', argComputerMove, argPlayerMove);
     if (argComputerMove == 'kamień' && argPlayerMove == 'papier') {
-        printMessage(1'Ty wygrywasz!');
+        printMessage('Ty wygrywasz!');
     } else if (argComputerMove == 'kamień' && argPlayerMove == 'nożyce') {
         printMessage('Komputer wygrywa.');
     } else if (argComputerMove == 'kamień' && argPlayerMove == 'kamień') {
