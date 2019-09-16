@@ -1,7 +1,7 @@
-let computerResult = 0;
+{let computerResult = 0;
 let playerResult = 0;
 
-function playGame(playerInput) {
+const playGame = function(playerInput) {
     clearMessages();
     function getMoveName(argMoveId) {
         if(argMoveId === 1) {
@@ -15,17 +15,17 @@ function playGame(playerInput) {
         return 'nieznany ruch';
     }
 
-    let randomNumber = Math.floor(Math.random() * 3 + 1);
+    const randomNumber = Math.floor(Math.random() * 3 + 1);
     console.log('Wylosowana liczba to: ' + randomNumber);
 
-    let computerMove = getMoveName(randomNumber);
+    const computerMove = getMoveName(randomNumber);
     printMessage('Ruch komputera to: ' + computerMove);
 
-    let playerMove = getMoveName(playerInput);
+    const playerMove = getMoveName(playerInput);
     console.log('Gracz wpisał: ' + playerInput);
     printMessage('Twój ruch to: ' + playerMove);
 
-    function displayResult(argComputerMove, argPlayerMove) {
+    const displayResult = function(argComputerMove, argPlayerMove) {
         console.log('Porównywane ruchy:', argComputerMove, argPlayerMove);
         if (argComputerMove === 'kamień' && argPlayerMove === 'papier') {
             printMessage('Ty wygrywasz!');
@@ -77,3 +77,4 @@ document.getElementById('play-scissors').addEventListener('click', function() {
 
 // można tak
 //document.getElementById('play-rock').addEventListener('click', playGame.bind(undefined, 1));
+}
